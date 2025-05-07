@@ -4,8 +4,9 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/D:/Documents/fpt/PRJ/FirstWebApp/web/index.html</file>
-            <file>file:/D:/Documents/fpt/PRJ/FirstWebApp/web/META-INF/context.xml</file>
             <file>file:/D:/Documents/fpt/PRJ/FirstWebApp/src/java/controller/DemoController.java</file>
+            <file>file:/D:/Documents/fpt/PRJ/FirstWebApp/web/login.html</file>
+            <file>file:/D:/Documents/fpt/PRJ/FirstWebApp/src/java/controller/LoginServlet.java</file>
         </group>
     </open-files>
 </project-private>

@@ -18,24 +18,30 @@ import jakarta.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "LoginServlet", urlPatterns = {"/process"})
 public class LoginServlet extends HttpServlet {
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
     }
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-        
+
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        
-        if("Admin".equals(username) && "123".equals(password)){
+        if (username.isEmpty() || password.isEmpty()) {
+            out.println("Please enter all field of login form");
+            return;
+        }
+        if ("Admin".equals(username) && "123".equals(password)) {
             out.println("<h2>Login Successfully!!</h2>");
-        }else{
+        } else {
             out.println("<h2>Login Failed!!</h2>");
         }
     }
 }
+
