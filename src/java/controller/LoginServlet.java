@@ -11,6 +11,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.util.ArrayList;
 
 /**
  *
@@ -30,18 +31,18 @@ public class LoginServlet extends HttpServlet {
             throws ServletException, IOException {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-
+        String message = "";
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        if (username.isEmpty() || password.isEmpty()) {
-            out.println("Please enter all field of login form");
-            return;
-        }
-        if ("Admin".equals(username) && "123".equals(password)) {
-            out.println("<h2>Login Successfully!!</h2>");
+        if (username.isEmpty() || username.isBlank() || password.isEmpty() || password.isBlank()) {
+            message = "Please enter all field of login form";
+        } else if ("Admin".equals(username) && "123".equals(password)) {
+            request.setAttribute("name", username);
+            request.getRequestDispatcher("home.jsp").forward(request, response);
         } else {
-            out.println("<h2>Login Failed!!</h2>");
+            message = "<h2>Login Failed!!</h2>";
         }
+        request.setAttribute("message_error", message); // tạo một cái thùng trước khi bắn sang trang jsp
+        request.getRequestDispatcher("login.jsp").forward(request, response);
     }
 }
-
