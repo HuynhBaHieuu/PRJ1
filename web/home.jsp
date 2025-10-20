@@ -14,5 +14,6 @@
     <body>
         <h1>Home Page</h1>
         <h1>Hello ${requestScope.name}</h1>
+        <h2>Nguyễn Lê Gia Bảo</h1>
     </body>
 </html>
